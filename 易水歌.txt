@@ -1,0 +1,8 @@
+﻿MAJOR = E
+TEMPO = 30
+BEGIN LYRICS
+风萧萧兮        1111    G4  E4
+易水寒          432     C4  A3
+壮士一去兮      44341   D4  D4
+不复还          332     A3  C4
+END LYRICS

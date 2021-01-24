@@ -1,0 +1,819 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Kunqu_Project_Notes</title><link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = ''><h1><a name="以昆腔北曲重新诠释古诗词的尝试" class="md-header-anchor"></a><span>以昆腔北曲重新诠释古诗词的尝试</span></h1><p><strong><span>李硕学 化学与分子工程学院 1800011839</span></strong></p><hr /><h2><a name="1-缘起--此次尝试灵感之由来" class="md-header-anchor"></a><span>1. 缘起--此次尝试灵感之由来</span></h2><p><span>		</span><span>在我上《经典昆曲欣赏》课程与加入京昆社之前，我对昆曲的印象便集中在最经典的《牡丹亭·游园》中。对昆曲细节的理解也就只是南昆中介于南北方言之间的咬字了。而这学期，在第一节昆曲欣赏课上，周万江老师及其弟子的精彩表演使我知道，昆曲不仅可以展现江南烟雨的细腻和才子佳人的风华，更能通过北昆的支脉展现出燕赵慷慨苍凉之气。之后京昆社的日常清曲拍习活动中，我学习了北曲《天官赐福》的几个曲牌，对北昆的特点有了初步的认识。</span></p><p><span>		</span><span>而最终促使我产生用北昆风格吟唱古诗词想法的，是接近期中的一节课。苏州大学的周秦老师为我们展示了昆腔音乐和唐宋词乐的渊源关系，以及如何“以歌曲之法歌词”，即以昆曲的调式风格将唐诗宋词表现出来。老师在上课时以南昆之腔吟唱了蒋捷的《虞美人·听雨》、《一剪梅·舟过吴江》等词，相较一般的朗读，昆腔与古代声韵更加贴合，从而能以更大的艺术张力表现词中的世间百景、人情冷暖。自那时起我便想，既然南曲能使婉约词声情并茂，那源于“辽金北鄙之音，武夫马上之歌”的北曲，也应能将“铁马冰河入梦来”的豪迈、“壮士一去兮不复还”的悲壮体现得淋漓尽致罢。因此期末作业中我有了用昆腔北曲来再诠释诗词的想法。</span></p><p><span>		</span><span>至于这次小尝试之形式，在几经斟酌之后，我选择了写Python程序，通过输入诗词等信息来自动生成靠近昆腔北曲风格的工尺谱和midi伴奏。一则因为该方式可以帮助我整合，乃至运用半个学期课上与社团中所学的昆曲知识，增进我对昆曲“依字行腔”等特点的理解；二则因为昆曲在腔调上有很强的程式性，而古诗词在平仄中也有规范，从而便于实现如此传统与现代之间的碰撞交融：毕竟倘使能让“无情”的电脑谱写“有情”之曲，莫不是一番快事；三则因为此学期的《经典昆曲欣赏》课程时间与我想选的一门有程序实习作业的课相冲突，这个方式恰可对我撞课的缺憾加以弥补。</span></p><p>&nbsp;</p><h2><a name="2-躬行--古诗词谱曲程序之设计思路" class="md-header-anchor"></a><span>2. 躬行--古诗词谱曲程序之设计思路</span></h2><h3><a name="21-北曲行腔特色之回顾" class="md-header-anchor"></a><span>2.1 北曲行腔特色之回顾</span></h3><p><span>		</span><span>让一行行冰冷的代码奏响燕赵慷慨，需要用其能理解的形式，诉以昆腔北曲之风。在此先权且回顾课程与社团中所学北曲腔调的一些较为显著的特点：</span></p><ul><li><span>同南曲一样，北曲也有“依字行腔”的特征。以《天官赐福·刮地风》为例（曲谱见附件的</span><a href='天官赐福-与众曲谱.pdf'><span>天官赐福-与众曲谱.pdf</span></a><span>），“庆长生酒”之“庆”字行腔为“尺</span><sup><span>√</span></sup><span>”，“看牛郎”之“看”为“尺</span><sup><span>√</span></sup><span>上尺”等，均为去声字之嚯腔，类似于简谱的高音装饰音；</span></li><li><span>北曲中，原为入声字的分派到平、上、去三声中。例如“福”字，原为“屋读韵”的入声，在北曲中派入上声（《韵学骊珠》中词条里的“北叶 府”，即读作“府”的音）；入声字“积”派作去声，《刮地风》中“积德的”之“积”行腔为“尺</span><sup><span>√</span></sup><span>上尺”，正明此意。</span></li><li><span>北曲为七声（包含“凡”与“乙”），同南曲的五声调式相异。五声调式之外变音，有使得乐曲风格趋于苍凉悲壮的能力。此方面其它例子层出不穷。例如《史记》记载荆轲行刺前高渐离击筑时“为变徵之声，士皆垂泪涕泣”；而在陕西、甘肃流传的剧种秦腔里，对“7”和“</span><sup><span>#</span></sup><span>4”音符的大量使用是其令闻者动容的重要因素。</span></li></ul><h3><a name="22-程序输入与运行之设计" class="md-header-anchor"></a><span>2.2 程序输入与运行之设计</span></h3><p><span>基于上面的理论基础，我在程序输入中便有如下的重要考虑：</span></p><ul><li><p><span>所生成的曲谱基于一个</span><strong><span>腔调文件</span></strong><span> （附件中之</span><strong><a href='TUNECAR'><span>TUNECAR</span></a></strong><span>文件）。其中囊括了北曲中常用的行腔，并包含了其所配声调、衔接音符等信息。其中举一例如下所示：</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4.16666px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C5 CA 1216 00000100 0001 仩√仩五 c53-d51-c52-a42</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 24px;"></div><div class="CodeMirror-gutters" style="display: none; height: 24px;"></div></div></div></pre><ul><li><p><span>第一列</span><code>C5</code><span>表示该强调始于“仩”，为粗略确定曲调走向时所用；</span></p></li><li><p><span>第二列</span><code>CA</code><span>表示该腔形如“仩五”，是初始总结行腔时的分类；</span></p></li><li><p><span>第三列</span><code>1216</code><span>表示该腔为“仩伬仩五”，（实际为嚯腔“仩</span><sup><span>√</span></sup><span>仩五”，如第六列所示），也是最初总结北曲单字行腔时的表记方式；</span></p></li><li><p><span>第四列</span><code>00000100</code><span>表示该腔后面可以跟以何音符起始的腔。八位从左往右依次为从“合”到“仩”的五声调式；只在第六位有一个1表明“仩</span><sup><span>√</span></sup><span>仩五”凭经验规则只能后跟以“六”起始的腔；</span></p></li><li><p><span>第五列</span><code>0001</code><span>表示该腔适配何种声调的字。“仩</span><sup><span>√</span></sup><span>仩五”为嚯腔，一般适用于去声字。虽然规则有例外，但在此简化起见，假定“仩</span><sup><span>√</span></sup><span>仩五”只能配去声字，即只在第四位有1；</span></p></li><li><p><span>第七列</span><code>c53-d51-c52-a42</code><span>表示该腔中每个音的实际音高与时长。以“-”分隔的三位字符中，前两位表示音高（“c5”为“仩”，“a4”为“五”等），第三位为该音的时值，</span><code>c53</code><span>表示“仩”大致唱3/8拍。该行的意义在于它便于在生成midi文件时被识别。此外，其它行中还存在</span><code>r01</code><span>一类的字符，其中的</span><code>r0</code><span>表示休止符，</span><code>1</code><span>表示它时长1/8拍，即有一个小换气。</span></p><p>&nbsp;</p></li></ul></li><li><p><strong><span>诗词文件</span></strong><span>中不仅有诗词的文字，还包含声调等其它信息。以《易水歌》简单地举例如下：</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4.16666px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">MAJOR = E</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">TEMPO = 30</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">BEGIN LYRICS</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">风萧萧兮 &nbsp; &nbsp; &nbsp;  1111 &nbsp;  G4  E4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">易水寒 &nbsp; &nbsp; &nbsp; &nbsp;  432 &nbsp; &nbsp; C4  A3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">壮士一去兮 &nbsp; &nbsp;  44341 &nbsp; D4  D4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">不复还 &nbsp; &nbsp; &nbsp; &nbsp;  332 &nbsp; &nbsp; A3  C4</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">END LYRICS</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 193px;"></div><div class="CodeMirror-gutters" style="display: none; height: 193px;"></div></div></div></pre><ul><li><p><code>MAJOR</code><span>表示全曲整体调式，</span><code>MAJOR = E</code><span>即简谱中的&quot;1 = E&quot;；</span></p></li><li><p><code>TEMPO</code><span>表示全曲整体的速度，</span><code>TEMPO = 30</code><span>即每分钟30拍；</span></p></li><li><p><span>歌词行自</span><code>BEGIN LYRICS</code><span>起始，自</span><code>END LYRICS</code><span>终止，曲调在中间每一行的末尾拍一次散板。各列之意义以“不复还”一句为例：</span></p><ul><li><span>第一列为诗词之文字；</span></li><li><span>第二列为每个字之声调，从1到4对应“阴”、“阳”、“上”和“去”四声。入声字业已按《韵学骊珠》之规则完成“入派三声”处理。例如“不”派为上声（“北叶 补”），标号为</span><code>3</code><span>；</span></li><li><span>第三、第四列为该句的起始和终止音。</span><code>A3 C4</code><span>表明“不复还”句以“四”音发轫，以“上”音收束。在输入文件时加入起始终止音的考量，也在一定程度上融合了个人对诗词情感的把握。如“风萧萧兮”一句以“六”音高起，在“易水寒”之末尾以“四”音低收，高低错落有致，便以景之萧瑟暗含环境之紧张；而“壮士一去兮不复还”从“尺”到“上”平起平收，则可表明荆轲刺秦斩钉截铁之决心（此外，我在输入文件中【尺→尺，四→上】音调走向的考虑还受到了京剧架子花脸行腔的影响）。</span></li></ul><p>&nbsp;</p></li></ul></li></ul><p><span>相应地，主程序</span><a href='main.py'><span>main.py</span></a><span>之运行情况则设计如下：</span></p><ul><li><span>程序读取诗词文件中每一句话的始末音，随机选择该句音调的基本走向。例如“风萧萧兮”可以选取【六→尺→工→工】或【六→五→六→工】等组合。但是该选择并不完全随机，在听感上跨度太大的组合将被排除在外。例如【五→合】等行腔方式是不允许的。该部分由程序中的</span><code>generate_base</code><span>函数来承担；</span></li><li><span>选取大致走向之后，程序为一句诗词中的每个字分配具体的腔调。如腔调文件说明中所言，行腔在第一列为已分配基本音调的各行中选取，进一步的范围由该腔调的后接音和对应字的声调决定。该部分由程序中的</span><code>generate_notes</code><span>函数来承担。</span></li><li><span>前两步确定整首曲的具体音调后，进行工尺谱的展示与midi伴奏文件的写入。写入工尺谱时调用图形界面模块</span><code>tkinter</code><span>，由</span><code>write_gongche</code><span>函数进行每一个字工尺谱的书写；生成midi文件时调用我过去用来谱曲而写的模块</span><code>Songwriter</code><span>（在程序</span><a href='Songwriter.py'><span>Songwriter.py</span></a><span>中，该模块本身调用</span><code>mido</code><span>模块而完成），先以</span><code>repre_note</code><span>函数将腔调文件的第七列转化为</span><code>Songwriter</code><span>可读谱的形式。最后在函数</span><code>compose</code><span>中完成工尺谱与midi的制作。</span></li></ul><h3><a name="23-程序执行之方法" class="md-header-anchor"></a><span>2.3 程序执行之方法</span></h3><p><span>启动古诗词北曲谱写程序时，需预先在电脑上</span><strong><span>安装</span><code>Python 3.7</code><span>，并且确定所需的</span><code>mido</code><span>、</span><code>numpy</code><span>和</span><code>tkinter</code><span>包已经安装好</span></strong><span>。之后在附件程序的目录之下打开命令行，输入命令之用法参见如下例子：</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="shell"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4.16666px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">python main.py <span class="cm-attribute">-i</span> 易水歌.txt <span class="cm-attribute">-o</span> 易水歌.mid <span class="cm-attribute">-r</span> <span class="cm-number">4</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 24px;"></div><div class="CodeMirror-gutters" style="display: none; height: 24px;"></div></div></div></pre><p><span>其中</span><code>-i</code><span>之后的参数表示输入的</span><strong><span>诗词文件</span></strong><span>名称（</span><code>易水歌.txt</code><span>），</span><code>-o</code><span>之后的参数表示输出的midi文件名称（</span><code>易水歌.mid</code><span>），</span><code>-r</code><span>之后的参数表示展示的工尺谱的行数（</span><code>4</code><span>）。输入命令后在当前目录中可播放midi文件，并在界面上看到工尺谱。</span></p><p>&nbsp;</p><h2><a name="3-吟赏--曲谱生成结果举例与讨论" class="md-header-anchor"></a><span>3. 吟赏--曲谱生成结果举例与讨论</span></h2><p><span>		</span><span>以岳飞《满江红·怒发冲冠》之上阙为例（输入文件为</span><a href='满江红.txt'><span>满江红.txt</span></a><span>，所标声调可能不准确），某次生成的工尺谱如下图所示，伴奏midi为</span><a href='满江红.mid'><span>满江红.mid</span></a><span>。</span></p><p><img src="满江红.png" alt="image-20201130223307539" style="zoom: 60%;" /></p><p><span>从该例子中可以看出程序所成之曲与北曲风格之符合程度，唱来也能声情并茂：</span></p><ul><li><p><span>谱面中“望”、“激”、“莫”等去声字（含入派后）基本加入了相应的嚯腔，而“仰天长啸”、“少年头”等平声相对集中的区域，则大多一字一声，故可见此曲基本符合“依字行腔”的特点；</span></p></li><li><p><span>在七声调式层面，“冲冠”、“尘与土”等处的“工”音之前接有含“凡”之腔，能基本合理地为整阙的情感画龙点睛，符合昆腔北曲之特色。</span></p><p>&nbsp;</p></li></ul><p><span>		</span><span>然而程序在组合单字行腔之时，仍会因随机性而不可避免地出现问题，以如下对《易水歌》的一次尝试为例（输入文件为</span><a href='易水歌.txt'><span>易水歌.txt</span></a><span>，以呕哑嘲哳之故未放入midi）：</span></p><p><img src="易水歌.png" alt="image-20201130230602618" style="zoom: 75%;" /></p><p><span>		</span><span>自工尺谱中可见，“壮士一去兮”一句中，行腔连续以“尺”起始，且没有产生去声字特有的嚯腔，整体行腔便少了顿挫；而产生的强调又有较多短促的部分，唱起来有如颤动，便少了此句本应有的决绝。</span></p><p><span>		</span><span>此外，程序选腔的随机性还可能带来其他的问题：例如“凡”、“一”等变声难以依腔均匀合理地分布，从而使曲调听来拼接之气浓重，以至落入“为北曲而成北曲”之窠臼；程序为词句谱曲时往往与语法结构和含义相独立，从而在句子较长时，所谱之曲有主观上违背词意之可能。</span></p><p><span>		</span><span>如上所示问题之根源，在于程序算法当中，一字之行腔仅取决于邻近腔调的信息，故而难以避免上例“壮士一去兮”腔调重复的弊端；整句情感基调的把握取决于个人在诗词文件中始末音调的输入，仍不免在程序随机生成中间音调的过程中有失偏颇，尤其是在一句话字数较多时，始末音所把握的情感尺度将更难被体现。若得有暇在算法中加入规避重复行腔的步骤，抑或对我们所期望的词句情感发展趋势予以较为定量的描述，则所谱之曲可能会更为完美。</span></p><p>&nbsp;</p><h2><a name="4-遐思--尝试后的片言随想" class="md-header-anchor"></a><span>4. 遐思--尝试后的片言随想</span></h2><p><span>		</span><span>期末作业中以程序之形式，将古诗词融入昆腔北曲的小实践，虽为一时兴起的率性之作，不免流于形式而浅尝辄止，但一番琢磨之后有些随感，便流泻于此了。</span></p><h3><a name="41-此番尝试之意义何在" class="md-header-anchor"></a><span>4.1 此番尝试之意义何在？</span></h3><p><span>		</span><span>虽然程序的核心自始至终只是在按一定规则选择音符，诗词之感情基调，大都取决于主动输入的始末音，然而正是程序如此对行腔的试探过程，便能做到博采人与机器之众长了。或许在新曲的创作过程中，程序随机广泛地罗列出行腔的排列组合，能够给创作者一个倏然的灵感，从而在“无意”中指导了创作。而决定程序能否提供此灵感的一步，在于我们对北昆风格的整体把握，在此次作业的程序里，这个整体的把握便体现在腔调文件的构造中了。此外，通过这一方式，我们还能尝试对其它剧种甚至其它音乐形式的发掘。例如谱南昆雅音时，腔调文件中则尽皆五声调式；谱秦腔秦韵时，行腔之元素便要多“变徵之声”了。</span></p><h3><a name="42--诗词之外还能做其它尝试吗" class="md-header-anchor"></a><span>4.2  诗词之外，还能做其它尝试吗？</span></h3><p><span>		</span><span>虽然我有过用昆腔北曲尝试其它形式的想法，既然能“以歌曲之法歌词”，那何不“以歌曲之法歌生活”呢？日常之吐槽玩梗，又何尝不可放在这样的形式中呢？然而正如前文所言，古诗词以其平仄之有法，抑扬之有度，从而能与依字行腔的昆曲风格相契合。即使其余形式的尝试足可聊以自娱，但论及艺术的尽善尽美，还是需要一番从格律到意蕴的推敲琢磨才行。从更大的角度来说，虽然在以青春版《牡丹亭》为代表的普及工作之下，阳春白雪的昆曲艺术已然“飞入寻常百姓家”，但倘若要保持昆曲的生命力，便仍需欣赏者提高文化水平与素养，如此我们方能将自身对昆曲艺术由表及里的理解传承、接力下去。</span></p></div>
+</body>
+</html>
